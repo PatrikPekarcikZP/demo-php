@@ -12,6 +12,7 @@ compile_job:
   script:
   - composer install
   - php oil test
+  - php oil test --coverage-text --colors=never
 
 deployment_job:
   stage: deploy
