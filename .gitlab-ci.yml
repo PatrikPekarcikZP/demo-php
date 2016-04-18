@@ -14,7 +14,7 @@ compile_job:
   - php oil test
   - php oil test --coverage-text=coverage.txt --colors=never
   - cat coverage.txt
-  arftifacts:
+  artifacts:
     paths:
     - coverage.txt
 
