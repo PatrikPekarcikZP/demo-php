@@ -1,0 +1,25 @@
+image: php
+
+stages:
+  - build
+  - deploy
+
+compile_job:
+  stage: build
+  tags:
+  - php
+  - composer
+  script:
+  - composer install
+  - php oil test
+
+deployment_job:
+  stage: deploy
+  tags:
+  - php
+  - composer
+  - dpl
+  dependencies:
+  - compile_job
+  script:
+  - dpl --provider=heroku --app=hidden-plains-22025 --api-key=$HEROKU_STAGING_API_KEY
