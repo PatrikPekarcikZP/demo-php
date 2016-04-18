@@ -12,7 +12,11 @@ compile_job:
   script:
   - composer install
   - php oil test
-  - php oil test --coverage-text --colors=never
+  - php oil test --coverage-text=coverage.txt --colors=never
+  - cat coverage.txt
+  aftifacts:
+    paths:
+    - coverage.txt
 
 deployment_job:
   stage: deploy
